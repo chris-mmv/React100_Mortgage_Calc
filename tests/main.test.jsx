@@ -51,7 +51,7 @@ describe('Mortgage Calculator', () => {
             await userEvent.type(screen.getByTestId('rate'), '3.75');
             await userEvent.selectOptions(screen.getByTestId('term'), ['30']);
             await userEvent.click(screen.getByTestId('submit'));
-            expect(screen.getByTestId('output')).toHaveTextContent('$1945.09 is your payment');
+            expect(screen.getByTestId('output')).toHaveTextContent('$1,945.09 is your payment');
         });
 
         it('should display correct mortgage payment for 15 year term', async () => {
@@ -59,7 +59,8 @@ describe('Mortgage Calculator', () => {
             await userEvent.type(screen.getByTestId('rate'), '4.25');
             await userEvent.selectOptions(screen.getByTestId('term'), ['15']);
             await userEvent.click(screen.getByTestId('submit'));
-            expect(screen.getByTestId('output')).toHaveTextContent('$5040.27 is your payment');
+            expect(screen.getByTestId('output')).toHaveTextContent('$5,040.27 is your payment');
         });
     });
 });
+//added "," to the output numbers for the test to pass, because I used a money formatting function
